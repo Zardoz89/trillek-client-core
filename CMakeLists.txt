@@ -146,13 +146,14 @@ SET(Frontend_LIBS
     ${CMAKE_THREAD_LIBS_INIT}
     )
 
-## Build only the lib and test of virtual computer
+## Build only the lib and test of virtual computer. Also disables breakpoints
 set(BUILD_TOOLS_VCOMPUTER FALSE CACHE BOOL "Build Trillek VCOMPUTER tools")
+set(BRKPOINTS_ENABLED 0 CACHE INT "Disables Break Points functionality")
 ADD_SUBDIRECTORY (${CMAKE_SOURCE_DIR}/common/trillek-vcomputer-module)
 
 SET(Backend_LIBS
     ${Backend_LIBS}
-    VCOMPUTER
+    VCOMPUTER_STATIC
     )
 
 INCLUDE_DIRECTORIES("${CMAKE_SOURCE_DIR}/common/trillek-vcomputer-module/include")
